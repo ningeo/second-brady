@@ -1,6 +1,6 @@
 # second-brady
 
-Portable, markdown-first personal knowledge system.
+Portable, markdown-first personal knowledge system with an LLM-maintained wiki layer.
 
 ## Principles
 
@@ -8,39 +8,31 @@ Portable, markdown-first personal knowledge system.
 - Tools are optional and replaceable.
 - Git tracks history.
 - Syncthing syncs working copies.
-- SQLite may index metadata, but does not own the knowledge.
-- AI assists organization, not architecture.
+- The LLM maintains the wiki; the human curates sources and asks questions.
 
 ## Folders
 
 - `inbox/` — quick capture, messy allowed
-- `journal/` — daily logs
-- `notes/` — durable evergreen knowledge
+- `journal/` — daily logs (human-written) and `log.md` (LLM-written operation log)
+- `notes/` — the wiki: durable, interlinked, LLM-maintained knowledge
 - `projects/` — active work and working notes
-- `references/` — templates, copied docs, external material
+- `references/` — templates, clipped articles, external documents (immutable sources)
 - `agents/` — agent instructions and workflows
-- `scripts/` — small utilities
-- `data/` — derived data like SQLite indexes
 
 ## Core workflow
 
 1. Capture quickly into `inbox/`
 2. Journal daily in `journal/`
-3. Promote repeated useful knowledge into `notes/`
-4. Review `inbox/` weekly
-5. Keep templates and reusable workflows in `references/templates/` and `agents/`
+3. Drop sources into `references/clipped/` or `references/docs/`
+4. Ask the LLM to ingest sources — it updates `notes/`, `notes/index.md`, and `journal/log.md`
+5. Query the wiki by asking questions — the LLM reads the index, finds pages, synthesizes answers
+6. Periodically lint the wiki for orphans, contradictions, and gaps
+7. Review `inbox/` weekly; promote what's proven useful
 
 ## Rules
 
 - Do not over-organize capture.
 - Distill only when something proves useful more than once.
-- Prefer normal markdown links.
+- Prefer standard markdown links.
 - Keep evergreen notes focused: one concept per note.
 - Keep AI-readable structure simple and boring.
-
-## First goals
-
-- 7 daily journal entries
-- 5+ quick captures
-- 2 evergreen notes
-- 1 reusable skill/checklist
