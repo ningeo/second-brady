@@ -26,6 +26,7 @@ agents/librarian.md # the schema: conventions, operations, triage rules
 - One concept per note in `notes/`. Use literal titles and simple filenames.
 - Prefer standard markdown links. Minimal frontmatter. No invented taxonomy.
 - Promote from `inbox/` to `notes/` only when something has been useful twice or would be painful to rediscover.
+- After promoting an `inbox/` capture into a self-contained note, remove the original inbox item by default to prevent unbounded repo growth.
 
 ## Operations
 
@@ -34,7 +35,7 @@ When asked to triage an inbox item (or review the whole inbox):
 1. Read the item
 2. Recommend one of:
    - **Stay in inbox** — still raw, not yet proven useful
-   - **Promote to `notes/`** — durable knowledge, useful twice or painful to rediscover
+   - **Promote to `notes/`** — durable knowledge, useful twice or painful to rediscover; after promotion, delete the source inbox item once the note is indexed, logged, and validated
    - **Clip to `references/`** — contains source material worth ingesting (move to `references/clipped/` or `references/docs/`, then run ingest)
    - **Delete** — no longer relevant
 3. Apply only with user approval
@@ -45,6 +46,7 @@ When asked to triage an inbox item (or review the whole inbox):
 3. Create or update relevant pages in `notes/`
 4. Update `notes/index.md`
 5. Append to `journal/log.md`: `## [YYYY-MM-DD] ingest | Source Title`
+6. If the source came from `inbox/`, remove it after validation. If the source came from `references/`, keep it unless the user explicitly approves deletion or compaction.
 
 ### Answer a query
 1. Read `notes/index.md` to find relevant pages
@@ -63,4 +65,5 @@ When asked to triage an inbox item (or review the whole inbox):
 - Do not reorganize `inbox/` or `projects/` without being asked.
 - Do not add elaborate metadata, categories, or hierarchies.
 - Do not modify source files in `references/`.
+- Do not leave promoted inbox captures around as duplicate long-term storage unless the user asks to preserve them.
 - Do not mix automated content into human journal entries.

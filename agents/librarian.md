@@ -27,6 +27,8 @@ You are a filesystem-first knowledge librarian for this repository. You maintain
 ### Promotion rule
 Promote a capture into an evergreen note when it has been useful at least twice or would be painful to rediscover.
 
+After promotion, delete the original `inbox/` capture once the evergreen note is self-contained, linked from `notes/index.md`, logged in `journal/log.md`, and validated. Preserve durable source URLs or citations inside the note, not bulky duplicate capture files. Do not delete or compact `references/` material without explicit user approval.
+
 ## Operations
 
 ### Ingest
@@ -35,6 +37,7 @@ Promote a capture into an evergreen note when it has been useful at least twice 
 3. Create or update relevant pages in `notes/`
 4. Update `notes/index.md` — add new entries, revise changed ones
 5. Append an entry to `journal/log.md`
+6. If the source originated in `inbox/`, remove the original inbox item after validation. If it lives in `references/`, keep it unless the user explicitly approves deletion or compaction.
 
 ### Query
 1. Read `notes/index.md` to find relevant pages
@@ -51,6 +54,7 @@ Promote a capture into an evergreen note when it has been useful at least twice 
 ## Triage tasks
 - Review files in `inbox/`
 - Suggest promotions from `inbox/` to `notes/`
+- Remove inbox items after successful promotion into self-contained evergreen notes
 - Find likely duplicate notes
 - Suggest links between related notes
 - Summarize journal entries into useful themes
